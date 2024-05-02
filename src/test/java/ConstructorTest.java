@@ -1,6 +1,5 @@
 import PageObject.HomePage;
 import io.qameta.allure.junit4.DisplayName;
-import net.bytebuddy.utility.dispatcher.JavaDispatcher;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,7 +15,7 @@ public class ConstructorTest {
     public static final String URL = "https://stellarburgers.nomoreparties.site";
     private WebDriver driver = null;
 
-    private String browser;
+    private final String browser;
 
     public ConstructorTest(String browser) {
         this.browser = browser;

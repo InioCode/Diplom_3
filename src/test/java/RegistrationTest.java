@@ -6,12 +6,14 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Random;
 
 import static PageObject.CommonFunction.createWebDriver;
-
+@RunWith(Parameterized.class)
 public class RegistrationTest {
     public static final String URL = "https://stellarburgers.nomoreparties.site";
     private WebDriver driver = null;
@@ -21,10 +23,23 @@ public class RegistrationTest {
     private String password;
     private String incorrectPassword;
 
+    private final String browser;
+
+    public RegistrationTest(String browser) {
+        this.browser = browser;
+    }
+
+    @Parameterized.Parameters
+    public static Object[][] getProperty(){
+        return new Object[][]{
+                {"yandex"},
+                {"chrome"}
+        };
+    }
 
     @Before
     public void setUp(){
-        driver = createWebDriver(driver, "chrome");
+        driver = createWebDriver(driver, browser);
         driver.get(URL);
         driver.manage().window().maximize();
 

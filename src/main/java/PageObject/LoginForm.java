@@ -2,10 +2,6 @@ package PageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class LoginForm {
     private final WebDriver driver;
@@ -34,23 +30,8 @@ public class LoginForm {
         driver.findElement(emailInput).sendKeys(email);
     }
 
-    public String getEmailInput() {
-        return driver.findElement(emailInput).getText();
-    }
-
-    public void clearEmailInput(){
-        driver.findElement(emailInput).clear();
-    }
-
     public void setPasswordInput(String password){
         driver.findElement(passwordInput).sendKeys(password);
-    }
-    public void getPasswordInput(){
-        driver.findElement(passwordInput).getText();
-    }
-
-    public void clearPasswordInput(){
-        driver.findElement(passwordInput).clear();
     }
 
     public void clickLoginButton(){
