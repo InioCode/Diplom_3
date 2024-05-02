@@ -1,6 +1,7 @@
 import PageObject.HomePage;
 import PageObject.LoginForm;
 import PageObject.PersonalCabinet;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -32,6 +33,7 @@ public class PersonalCabinetTest {
         driver.quit();
     }
 
+    @DisplayName("Войти в личный кабинет")
     @Test
     public void openPersonalCabinet(){
         HomePage objHomePage = new HomePage(driver);
@@ -47,6 +49,7 @@ public class PersonalCabinetTest {
        Assert.assertEquals("Профиль", objPersonalCabinet.getProfileLabel());
     }
 
+    @DisplayName("Выйти из личный кабинета")
     @Test
     public void exitAccount(){
         HomePage objHomePage = new HomePage(driver);

@@ -1,6 +1,7 @@
 import PageObject.HomePage;
 import PageObject.LoginForm;
 import PageObject.RegistrationForm;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -40,6 +41,7 @@ public class RegistrationTest {
         driver.quit();
     }
 
+    @DisplayName("Создание новго пользоваетля в форме регистрации")
     @Test
     public void successRegistration(){
         HomePage objHomePage = new HomePage(driver);
@@ -55,6 +57,7 @@ public class RegistrationTest {
         Assert.assertEquals("Войти", objLoginForm.getLoginButtonLabel());
     }
 
+    @DisplayName("При создании новго пользоваетля с паролем меньше 6 символов появляется ошибка")
     @Test
     public void registrationWithIncorrectPasswordReturnError(){
         HomePage objHomePage = new HomePage(driver);
