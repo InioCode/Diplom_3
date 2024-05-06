@@ -1,8 +1,8 @@
-package Api;
+package api;
 
 import io.restassured.RestAssured;
 
-import static Api.UrlConstants.DELETE_URL;
+import static api.UrlConstants.DELETE_URL;
 
 public class DeleteUser {
 

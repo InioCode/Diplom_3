@@ -1,4 +1,4 @@
-package Api.JsonObjects;
+package api.json;
 
 public class LoginUserBodyData {
     private String email;

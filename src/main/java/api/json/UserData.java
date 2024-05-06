@@ -1,4 +1,4 @@
-package Api.JsonObjects;
+package api.json;
 
 public class UserData {
     private String email;

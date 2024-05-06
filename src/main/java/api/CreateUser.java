@@ -1,10 +1,10 @@
-package Api;
+package api;
 
-import Api.JsonObjects.CreateUserBodyData;
-import Api.JsonObjects.SuccessRegisterUserData;
+import api.json.CreateUserBodyData;
+import api.json.SuccessRegisterUserData;
 import io.restassured.RestAssured;
 
-import static Api.UrlConstants.REGISTRATION_URL;
+import static api.UrlConstants.REGISTRATION_URL;
 
 public class CreateUser {
     public static String createUserAndGetToken(String email, String password){

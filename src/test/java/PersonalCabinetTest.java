@@ -1,8 +1,7 @@
-import PageObject.HomePage;
-import PageObject.LoginForm;
-import PageObject.PersonalCabinet;
+import pageobject.HomePage;
+import pageobject.LoginForm;
+import pageobject.PersonalCabinet;
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.RestAssured;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,10 +10,10 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.Random;
 
-import static Api.CreateUser.createUserAndGetToken;
-import static Api.DeleteUser.deleteUser;
-import static Api.UrlConstants.BASE_URL;
-import static PageObject.ConfigClass.createWebDriver;
+import static api.CreateUser.createUserAndGetToken;
+import static api.DeleteUser.deleteUser;
+import static api.UrlConstants.BASE_URL;
+import static pageobject.ConfigClass.createWebDriver;
 
 public class PersonalCabinetTest {
     private WebDriver driver = null;

@@ -1,10 +1,10 @@
-package Api;
+package api;
 
-import Api.JsonObjects.LoginUserBodyData;
-import Api.JsonObjects.SuccessLoginUserData;
+import api.json.LoginUserBodyData;
+import api.json.SuccessLoginUserData;
 import io.restassured.RestAssured;
 
-import static Api.UrlConstants.LOGIN_URL;
+import static api.UrlConstants.LOGIN_URL;
 
 public class LoginUser {
 

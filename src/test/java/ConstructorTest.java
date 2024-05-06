@@ -1,15 +1,13 @@
-import PageObject.HomePage;
+import pageobject.HomePage;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 
-import static Api.UrlConstants.BASE_URL;
-import static PageObject.ConfigClass.createWebDriver;
+import static api.UrlConstants.BASE_URL;
+import static pageobject.ConfigClass.createWebDriver;
 
 public class ConstructorTest {
     private WebDriver driver = null;
