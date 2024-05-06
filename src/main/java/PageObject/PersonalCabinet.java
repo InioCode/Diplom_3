@@ -10,11 +10,11 @@ public class PersonalCabinet {
         this.driver = driver;
     }
     public void waitingVisibilityOfExitButton(){
-        CommonFunction.waitingVisibilityOfElement(driver, exitButton);
+        ConfigClass.waitingVisibilityOfElement(driver, exitButton);
     }
 
     public void waitingVisibilityOfProfileLabel(){
-        CommonFunction.waitingVisibilityOfElement(driver, profileLabel);
+        ConfigClass.waitingVisibilityOfElement(driver, profileLabel);
     }
     private final By profileLabel = By.xpath(".//*[text() = 'Профиль']");
     private final By exitButton = By.xpath(".//button[text() = 'Выход']");

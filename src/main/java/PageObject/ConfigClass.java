@@ -9,8 +9,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class CommonFunction {
-    private final static String yandexBrowserPath = "C:\\Users\\Николай\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe";
+public class ConfigClass {
+    //Абсолютный путь к браузеру является заглушкой, так как Яндекс браузер обновился и перешел на chromium 122,
+    //а yandexdriver котрый мы должны были использовать в дипломе под эту версию пока нет. Последняя версия 120
+    //Это путь к бинарнику который запускается через chromedriver. Без него Яндекс браузер не работает
+    private final static String YANDEX_BROWSER_PATH = "C:\\Users\\Николай\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe";
 
     public static void waitingVisibilityOfElement(WebDriver driver, By element){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -24,7 +27,7 @@ public class CommonFunction {
         } else if (browser.equalsIgnoreCase("yandex")) {
             System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver122.exe");
             ChromeOptions options = new ChromeOptions();
-            options.setBinary(yandexBrowserPath);
+            options.setBinary(YANDEX_BROWSER_PATH);
             driver = new ChromeDriver(options);
         } else {
             System.out.println("Неподдреживаемый браузер:" + browser);

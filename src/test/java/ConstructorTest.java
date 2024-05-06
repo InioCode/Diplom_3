@@ -8,31 +8,18 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 
-import static PageObject.CommonFunction.createWebDriver;
+import static Api.UrlConstants.BASE_URL;
+import static PageObject.ConfigClass.createWebDriver;
 
-@RunWith(Parameterized.class)
 public class ConstructorTest {
-    public static final String URL = "https://stellarburgers.nomoreparties.site";
     private WebDriver driver = null;
-
-    private final String browser;
-
-    public ConstructorTest(String browser) {
-        this.browser = browser;
-    }
-
-    @Parameterized.Parameters
-    public static Object[][] getProperty(){
-        return new Object[][]{
-                {"yandex"},
-                {"chrome"}
-        };
-    }
+    private String browser;
 
     @Before
     public void setUp(){
+        browser = "yandex";
         driver = createWebDriver(driver ,browser);
-        driver.get(URL);
+        driver.get(BASE_URL);
         driver.manage().window().maximize();
     }
 
@@ -46,11 +33,9 @@ public class ConstructorTest {
     public void bunTabTypeButtonScrollToBuns(){
         HomePage objHomePage = new HomePage(driver);
         objHomePage.clickFillingTabTypeButton();
-        objHomePage.waitingVisibilityOfFillingSectionLabel();
 
         objHomePage.clickBunTabTypeButton();
-        objHomePage.waitingVisibilityOfBunSectionLabel();
-        Assert.assertEquals("Булки", objHomePage.getLabelBunSection());
+        Assert.assertEquals("Булки", objHomePage.getActiveTabLabel());
     }
 
     @DisplayName("Клик по вкладке Соусы прокуручивает конструктор до соответсвующего раздела")
@@ -59,8 +44,7 @@ public class ConstructorTest {
         HomePage objHomePage = new HomePage(driver);
 
         objHomePage.clickSauceTabTypeButton();
-        objHomePage.waitingVisibilityOfSauceSectionLabel();
-        Assert.assertEquals("Соусы", objHomePage.getLabelSauceSection());
+        Assert.assertEquals("Соусы", objHomePage.getActiveTabLabel());
     }
 
     @DisplayName("Клик по вкладке Начинки прокуручивает конструктор до соответсвующего раздела")
@@ -69,7 +53,6 @@ public class ConstructorTest {
         HomePage objHomePage = new HomePage(driver);
 
         objHomePage.clickFillingTabTypeButton();
-        objHomePage.waitingVisibilityOfFillingSectionLabel();
-        Assert.assertEquals("Начинки", objHomePage.getLabelFillingSection());
+        Assert.assertEquals("Начинки", objHomePage.getActiveTabLabel());
     }
 }

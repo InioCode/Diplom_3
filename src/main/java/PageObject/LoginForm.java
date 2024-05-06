@@ -16,7 +16,7 @@ public class LoginForm {
     }
 
     public void waitingVisibilityOfLoginButton(){
-        CommonFunction.waitingVisibilityOfElement(driver, loginButton);
+        ConfigClass.waitingVisibilityOfElement(driver, loginButton);
     }
 
     public void registrationLinkClick(){

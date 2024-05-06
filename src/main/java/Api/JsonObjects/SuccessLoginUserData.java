@@ -1,21 +1,21 @@
-package JsonObjects;
+package Api.JsonObjects;
 
 import java.util.List;
 
-public class SuccessRegisterUserData {
+public class SuccessLoginUserData {
     private String success;
-    private List<UserData> UserData;
     private String accessToken;
     private String refreshToken;
+    private List<UserData> userData;
 
-    public SuccessRegisterUserData(String success, List<UserData> userData, String accessToken, String refreshToken) {
+    public SuccessLoginUserData(String success, String accessToken, String refreshToken, List<UserData> userData) {
         this.success = success;
-        UserData = userData;
+        this.userData = userData;
         this.accessToken = accessToken;
         this.refreshToken = refreshToken;
     }
 
-    public SuccessRegisterUserData() {
+    public SuccessLoginUserData() {
     }
 
     public String getSuccess() {
@@ -27,11 +27,11 @@ public class SuccessRegisterUserData {
     }
 
     public List<UserData> getUserData() {
-        return UserData;
+        return userData;
     }
 
     public void setUserData(List<UserData> userData) {
-        UserData = userData;
+        this.userData = userData;
     }
 
     public String getAccessToken() {

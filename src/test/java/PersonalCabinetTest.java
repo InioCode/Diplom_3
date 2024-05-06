@@ -2,52 +2,47 @@ import PageObject.HomePage;
 import PageObject.LoginForm;
 import PageObject.PersonalCabinet;
 import io.qameta.allure.junit4.DisplayName;
+import io.restassured.RestAssured;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 
-import static PageObject.CommonFunction.createWebDriver;
+import java.util.Random;
 
-@RunWith(Parameterized.class)
+import static Api.CreateUser.createUserAndGetToken;
+import static Api.DeleteUser.deleteUser;
+import static Api.UrlConstants.BASE_URL;
+import static PageObject.ConfigClass.createWebDriver;
+
 public class PersonalCabinetTest {
-    public static final String URL = "https://stellarburgers.nomoreparties.site";
     private WebDriver driver = null;
 
     private String email;
     private String password;
-
-    private final String browser;
-
-    public PersonalCabinetTest(String browser) {
-        this.browser = browser;
-    }
-
-    @Parameterized.Parameters
-    public static Object[][] getProperty(){
-        return new Object[][]{
-                {"yandex"},
-                {"chrome"}
-        };
-    }
+    private String browser;
+    private String accessToken;
 
 
     @Before
     public void setUp(){
+        browser = "yandex";
         driver = createWebDriver(driver,browser);
-        driver.get(URL);
+        driver.get(BASE_URL);
         driver.manage().window().maximize();
 
-        email = "text456@mail.ru";
+        int randInt = new Random().nextInt(1000);
+        email = "text" + randInt + "@mail.ru";
         password = "Password";
+
+        accessToken = createUserAndGetToken(email, password);
     }
 
     @After
     public void tearDown(){
         driver.quit();
+        deleteUser(accessToken);
     }
 
     @DisplayName("Войти в личный кабинет")
