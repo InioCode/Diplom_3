@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.Random;
 
 import static api.CreateUser.createUserAndGetToken;
+import static api.CreateUser.userCreated;
 import static api.DeleteUser.deleteUser;
 import static api.UrlConstants.BASE_URL;
 import static pageobject.ConfigClass.createWebDriver;
@@ -43,7 +44,10 @@ public class PersonalCabinetTest {
     @After
     public void tearDown(){
         driver.quit();
-        deleteUser(accessToken);
+        if (userCreated){
+            deleteUser(accessToken);
+        }
+
     }
 
     @DisplayName("Войти в личный кабинет")

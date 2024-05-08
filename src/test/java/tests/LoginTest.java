@@ -39,7 +39,6 @@ public class LoginTest {
         password = "Password";
 
         accessToken = createUserAndGetToken(email,password);
-        userCreated = true;
     }
 
     @After

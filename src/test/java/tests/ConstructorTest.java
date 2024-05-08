@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import static api.UrlConstants.BASE_URL;
 import static pageobject.ConfigClass.createWebDriver;
 
-public class ConstructorTest {
+public class ConstructorTest{
     private WebDriver driver = null;
     private String browser;
 

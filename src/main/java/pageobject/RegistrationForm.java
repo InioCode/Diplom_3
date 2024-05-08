@@ -1,5 +1,6 @@
 package pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,26 +18,27 @@ public class RegistrationForm {
     }
 
 
-
+    @Step("Ввод имени в поле Имя")
     public void setNameInput(String name){
         driver.findElement(nameInput).sendKeys(name);
     }
-
+    @Step("Ввод почты в поле Email")
     public void setEmailInput(String email){
         driver.findElement(emailInput).sendKeys(email);
     }
-
+    @Step("Ввод пароля в поле Password")
     public void setPasswordInput(String password){
         driver.findElement(passwordInput).sendKeys(password);
     }
-
+    @Step("Нажатие на кнопку Зарегестрироваться")
     public void registrationButtonClick(){
         driver.findElement(registrationButton).click();
     }
-
+    @Step("Получение текста ошибки о неверно введеном пароле")
     public String getIncorrectPasswordError(){
         return driver.findElement(incorrectPasswordError).getText();
     }
+    @Step("Нажатие на надпись-ссылку Войти")
     public void clickLoginLink(){
         driver.findElement(loginLink).click();
     }

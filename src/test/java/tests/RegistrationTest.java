@@ -38,8 +38,6 @@ public class RegistrationTest {
         email = "text" + new Random().nextInt(1000) +"@mail.ru";
         password = "Password";
         incorrectPassword = "1234";
-
-        //System.out.println(email);
     }
 
     @After

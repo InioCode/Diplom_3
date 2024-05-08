@@ -1,5 +1,6 @@
 package pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -11,7 +12,7 @@ public class PasswordRecoveryForm {
     public PasswordRecoveryForm(WebDriver driver) {
         this.driver = driver;
     }
-
+    @Step("Нажатие на надпись-ссылку Войти")
     public void clickLoginLink(){
         driver.findElement(loginLink).click();
     }

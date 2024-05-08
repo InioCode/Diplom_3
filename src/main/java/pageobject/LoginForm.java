@@ -1,5 +1,6 @@
 package pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,30 +15,31 @@ public class LoginForm {
     public LoginForm(WebDriver driver) {
         this.driver = driver;
     }
-
+    @Step("Ожидание видимости кнопки Войти")
     public void waitingVisibilityOfLoginButton(){
         ConfigClass.waitingVisibilityOfElement(driver, loginButton);
     }
-
+    @Step("Нажатие на надпись-ссылку Зарегистрироваться")
     public void registrationLinkClick(){
         driver.findElement(registrationLink).click();
     }
+    @Step("Нажатие на надпись-ссылку Восстановить пароль")
     public void passwordRecoveryLinkClick(){
         driver.findElement(passwordRecoveryLink).click();
     }
-
+    @Step("Ввод почты в поле Email")
     public void setEmailInput(String email){
         driver.findElement(emailInput).sendKeys(email);
     }
-
+    @Step("Ввод пароля в поле Password")
     public void setPasswordInput(String password){
         driver.findElement(passwordInput).sendKeys(password);
     }
-
+    @Step("Нажатие на кнопку Войти")
     public void clickLoginButton(){
         driver.findElement(loginButton).click();
     }
-
+    @Step("Получение подписи Кнопки Войти")
     public String getLoginButtonLabel(){
         return driver.findElement(loginButton).getText();
     }
