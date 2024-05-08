@@ -1,3 +1,5 @@
+package tests;
+
 import pageobject.HomePage;
 import pageobject.LoginForm;
 import pageobject.PasswordRecoveryForm;
@@ -26,7 +28,7 @@ public class LoginTest {
 
     @Before
     public void setUp(){
-        browser = "yandex";
+        browser = System.getProperty("browser");
         driver = createWebDriver(driver ,browser);
         driver.get(BASE_URL);
         driver.manage().window().maximize();

@@ -1,3 +1,5 @@
+package tests;
+
 import pageobject.HomePage;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
@@ -15,7 +17,7 @@ public class ConstructorTest {
 
     @Before
     public void setUp(){
-        browser = "yandex";
+        browser = System.getProperty("browser");
         driver = createWebDriver(driver ,browser);
         driver.get(BASE_URL);
         driver.manage().window().maximize();

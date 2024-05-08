@@ -1,3 +1,5 @@
+package tests;
+
 import pageobject.HomePage;
 import pageobject.LoginForm;
 import pageobject.RegistrationForm;
@@ -27,7 +29,7 @@ public class RegistrationTest {
 
     @Before
     public void setUp(){
-        browser = "yandex";
+        browser = System.getProperty("browser");
         driver = createWebDriver(driver, browser);
         driver.get(BASE_URL);
         driver.manage().window().maximize();
